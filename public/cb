@@ -1,0 +1,15 @@
+#!/bin/bash
+# Scripted by Dayo.
+# This little script is an implementation of the `cp` command.
+# It passes a file name as command-line argument to cp and creates
+# a backup file, that has a timestamp tacked on, signifying the 
+# date and time the backup was created.
+# Timestamp format is as follows, from left to right:
+# %y = last two digits of the current year, e.g. 09 (2009)
+# %m = the current month in numbers, e.g. 02 (February)
+# %d = the current day in numbers, e.g. 20 (20th)
+# %H = the current hour of the day, e.g. 15 (3pm)
+# %M = the minutes of the current hour, e.g. 40 (40 minutes)
+
+cp $1 $1_BACKUP`date +%y%m%d`_`date +%H%M%S` ;
+echo "Backup file created for $1:  $1_BACKUP`date +%y%m%d`_`date +%H%M%S`";
