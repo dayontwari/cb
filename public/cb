@@ -2,7 +2,7 @@
 # filename: cb
 # description: Create a backup of a file or directory, where the filename
 #              of the backup is appended with the current timestamp.
-# fileversion: 0.1
+# fileversion: 0.1.1
 # date: 20120825
 # author: Dayo Adewunmi
 # email: jargonsummary@gmail.com
@@ -26,15 +26,21 @@ def createBackup(source):
     # Put together the filename suffix.
     backupsuffix = '_BACKUP' + strftime("%Y%m%d_%H%M%S")
     backupname = os.path.basename(source) + backupsuffix
+    
+    # Get the destination directory.
+    destinationdir = os.path.dirname(os.path.abspath(source))
+
+    # Create the absolute path for the backup file.
+    backupfile = destinationdir + '/' + backupname
 
     # Check of the source is a file, and if it is use shutil.copy2().
     if os.path.isfile(source):
-        shutil.copy2(os.path.abspath(source), backupname)
-        backupReport(backupname)
+        shutil.copy2(os.path.abspath(source), backupfile)
+        backupReport(backupfile)
     # But if source is a directory, shutil.copytree().
     elif os.path.isdir(source):
-        shutil.copytree(os.path.abspath(source), backupname)
-        backupReport(backupname)
+        shutil.copytree(os.path.abspath(source), backupfile)
+        backupReport(backupfile)
     else:
         print "cb: Error: File or directory not found."
 
