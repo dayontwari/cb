@@ -2,7 +2,7 @@
 # filename: cb
 # description: Create a backup of a file or directory, where the filename
 #              of the backup is appended with the current timestamp.
-# fileversion: 0.1.1
+# fileversion: 0.1.1.2
 # date: 20120825
 # author: Dayo Adewunmi
 # email: jargonsummary@gmail.com
@@ -25,6 +25,11 @@ def createBackup(source):
     
     # Put together the filename suffix.
     backupsuffix = '_BACKUP' + strftime("%Y%m%d_%H%M%S")
+
+    # Strip trailing slash on source directory name or else
+    # os.path.basename() will return empty, and a backupname
+    # will not be created.
+    source = source.rstrip('/')
     backupname = os.path.basename(source) + backupsuffix
     
     # Get the destination directory.
