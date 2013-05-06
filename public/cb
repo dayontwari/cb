@@ -2,8 +2,8 @@
 # filename: cb
 # description: Create a backup of a file or directory, where the filename
 #              of the backup is appended with the current timestamp.
-# fileversion: 0.1.1.2
-# date: 20120825
+# fileversion: 0.1.1.3
+# date: 20130506
 # author: Dayo Adewunmi
 # email: jargonsummary@gmail.com
 # license: GPLv3
@@ -47,7 +47,7 @@ def createBackup(source):
         shutil.copytree(os.path.abspath(source), backupfile)
         backupReport(backupfile)
     else:
-        print "cb: Error: File or directory not found."
+        print "cb: Error: \'%s\' File or directory not found." %(source)
 
 def main():
     if len(userArgs) != 2:
