@@ -1,13 +1,13 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # filename: cb
 # description: Create a backup of a file or directory, where the filename
 #              of the backup is appended with the current timestamp.
-# fileversion: 0.1.1.3
-# date: 20130506
-# author: Dayo Adewunmi
-# email: jargonsummary@gmail.com
+# fileversion: 0.2
+# date: 20190813
+# author: Dayo Ntwari
+# email: dayontwari@gmail.com
 # license: GPLv3
-# python version: 2.7.3
+# python version: 3
 
 import os
 import shutil
@@ -16,7 +16,7 @@ from time import strftime
 
 def backupReport(backupname):
     """ Print the result of the backup operation. """
-    print "Backup created: %s" %(backupname)
+    print("Backup created: %s" %(backupname))
 
 def createBackup(source):
     """ Create a backup of a file or directory, where the filename \
@@ -47,11 +47,11 @@ def createBackup(source):
         shutil.copytree(os.path.abspath(source), backupfile)
         backupReport(backupfile)
     else:
-        print "cb: Error: \'%s\' File or directory not found." %(source)
+        print("cb: Error: \'%s\' File or directory not found." %(source))
 
 def main():
     if len(userArgs) != 2:
-        print "Usage: cb <source>"
+        print("Usage: cb <source>")
     else:
         createBackup(userArgs[1])
     

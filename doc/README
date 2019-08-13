@@ -1,19 +1,19 @@
 README
 ======
 
-cb 0.1.1.2
-    Command-line utility for creating on the fly backups of files
+cb 0.2
+    Python 3 Command-line utility for creating on the fly backups of files
     or directories, where the filename of the backup is appended with
     the current timestamp.
     
 Author:
-    Dayo Adewunmi <jargonsummary@googlemail.com>
+    Dayo Ntwari <dayontwari@gmail.com>
 
 License:
     GNU GPLv3
 
 Requirements:
-    - python >=2.6.6
+    - python >= 3
 
 Installation:
     1. Copy cb to /usr/local/bin
@@ -26,8 +26,7 @@ Usage:
 
 Feedback:
     Any type of helpful feedback is always welcome. Send
-    an email to jargonsummary@googlemail.com. I'm also on IRC in the
-    Python channel on freenode. My nick is jargon-.
+    an email to dayontwari@gmail.com.
 
 Credits:
     A big thank you to all the patient and help and education I get
